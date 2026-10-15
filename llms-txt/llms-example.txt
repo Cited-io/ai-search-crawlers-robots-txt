@@ -1,0 +1,40 @@
+# Example Payroll
+
+> Example Payroll is payroll and scheduling software for independent restaurants in the United States with 5 to 200 staff. It runs payroll, pools and distributes tips, files federal and state payroll taxes, and builds staff schedules from forecast covers.
+
+Example Payroll is a fictional company used to show the llms.txt format. Every fact below is invented.
+
+Key facts:
+
+- Category: restaurant payroll software, with tip pooling and staff scheduling.
+- Customers: independent restaurants, cafes and bars with 5 to 200 staff.
+- Markets served: all 50 US states. Not available outside the United States.
+- Pricing (checked October 2026): from $6 per employee per month plus a $49 monthly base fee. No setup fee.
+- Getting started: a 30-day free trial, or book a demo.
+- Integrations: imports hours and tips from the major restaurant point-of-sale systems.
+- Contact: sales@example.com
+
+## Product
+
+- [Payroll](https://www.example.com/payroll): unlimited pay runs, direct deposit and payroll tax filing in every state.
+- [Tip pooling](https://www.example.com/tip-pooling): pool tips by hours, role or points, and pay them out with payroll.
+- [Scheduling](https://www.example.com/scheduling): build weekly schedules from forecast covers and labor budget.
+- [Pricing](https://www.example.com/pricing): plans, per-employee prices and what each plan includes.
+
+## Guides and answers
+
+- [How tip pooling works for restaurants](https://www.example.com/guides/how-tip-pooling-works): who can share in a tip pool, and the common ways to split it.
+- [Restaurant payroll checklist](https://www.example.com/guides/restaurant-payroll-checklist): what to set up before your first pay run.
+- [Example Payroll vs general payroll software](https://www.example.com/compare/restaurant-vs-general-payroll): when a restaurant needs tip and scheduling features, and when it doesn't.
+
+## Company
+
+- [About](https://www.example.com/about): founded in 2019, team of 40, based in Austin, Texas.
+- [Customers](https://www.example.com/customers): restaurants that use Example Payroll, with their permission.
+- [Contact](https://www.example.com/contact): sales, support and payroll-tax questions.
+
+## Optional
+
+- [Blog](https://www.example.com/blog): restaurant labor news and product updates.
+- [Careers](https://www.example.com/careers): open roles.
+- [Full text for language models](https://www.example.com/llms-full.txt): every page above as Markdown.

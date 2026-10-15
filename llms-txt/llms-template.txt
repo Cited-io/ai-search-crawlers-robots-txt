@@ -1,0 +1,37 @@
+# Company Name
+
+> One or two sentences: what you are, what you sell, and who it is for. Use the words your buyers use, not a slogan. Example: "Company Name is payroll software for US restaurants with 5 to 200 staff, with tip pooling and scheduling built in."
+
+Key facts:
+
+- Category: the plain name of what you sell, as a buyer would search for it.
+- Customers: who it is for (industry, size, region).
+- Locations or markets served: countries, regions or cities.
+- Pricing: starting price and billing period, with the month you checked it.
+- Getting started: free trial, demo, or contact sales.
+- Contact: a monitored email address.
+
+## Product
+
+- [Product overview](https://www.example.com/product): what it does, in one line.
+- [Feature or service one](https://www.example.com/features/one): what problem it solves.
+- [Feature or service two](https://www.example.com/features/two): what problem it solves.
+- [Pricing](https://www.example.com/pricing): plans and what each includes.
+
+## Guides and answers
+
+- [The question your buyers ask most](https://www.example.com/guides/question-one): the one-line answer.
+- [Second most common question](https://www.example.com/guides/question-two): the one-line answer.
+- [Comparison with an alternative](https://www.example.com/compare/you-vs-alternative): who should choose which.
+
+## Company
+
+- [About](https://www.example.com/about): founding year, team, location.
+- [Customers or case studies](https://www.example.com/customers): named, verifiable results only.
+- [Contact](https://www.example.com/contact): how to reach sales and support.
+
+## Optional
+
+- [Blog](https://www.example.com/blog): news and longer articles.
+- [Careers](https://www.example.com/careers): open roles.
+- [Full text for language models](https://www.example.com/llms-full.txt): every page above as Markdown.

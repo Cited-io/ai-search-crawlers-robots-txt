@@ -1,0 +1,148 @@
+# robots.txt: appear in AI search answers, opt out of AI model training
+# Template from https://github.com/Cited-io/ai-search-crawlers-robots-txt
+# Tokens verified against each vendor's own documentation on 2026-10-15.
+# Full table with purposes and IP lists:
+#   https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/crawlers.md
+#
+# What this file does:
+#   ALLOWS  the search crawlers that show and link your pages in
+#           ChatGPT search, Claude, Perplexity, Google AI Overviews and
+#           AI Mode, Copilot, Siri, Meta AI, Alexa, DuckDuckGo and Mistral.
+#   ALLOWS  the fetchers that load a page when a person asks about it.
+#   BLOCKS  the crawlers and tokens that control use for model training.
+#
+# HOW TO EDIT
+# 1. Replace https://www.example.com with your domain (bottom of file).
+# 2. Put any private paths (admin, cart, account, search results) under
+#    EVERY group, not just under "User-agent: *".
+#    Under RFC 9309 a crawler follows only the most specific group that
+#    names it. A crawler named in group 2 ignores the rules in group 1.
+# 3. Read the two trade-offs below before you publish.
+# 4. Check what is actually served after your CDN with check.md:
+#    https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/check.md
+#
+# TRADE-OFF 1: Google-Extended is not training-only.
+#   Google says it also controls grounding in the Gemini app and in
+#   Grounding with Google Search on Vertex AI. Blocking it can keep your
+#   pages out of Gemini app answers. It does NOT affect Google Search,
+#   AI Overviews or AI Mode, which follow Googlebot.
+#   Want Gemini app answers too? Move Google-Extended to group 2.
+#   https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers
+#
+# TRADE-OFF 2: Bing and Copilot have no training token.
+#   Microsoft documents no separate Copilot crawler and no robots.txt
+#   training opt-out. Its controls are page-level meta tags:
+#     NOCACHE   -> may appear in AI answers as URL, title and snippet only;
+#                  only those may be used for training.
+#     NOARCHIVE -> left out of AI answers and not used for training.
+#   Keep bingbot allowed if you want Copilot citations.
+#   https://blogs.bing.com/webmaster/september-2023/Announcing-new-options-for-webmasters-to-control-usage-of-their-content-in-Bing-Chat
+#
+# robots.txt is a request, not a lock. Some user fetchers say they may
+# not follow it (ChatGPT-User, Perplexity-User, meta-externalfetcher,
+# Amzn-User). To enforce a block you need a firewall rule; see:
+#   https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/templates/cloudflare-vercel.md
+
+
+# ---------------------------------------------------------------------
+# Group 1: every crawler not named below
+# ---------------------------------------------------------------------
+User-agent: *
+Allow: /
+# Disallow: /admin/
+# Disallow: /cart/
+
+
+# ---------------------------------------------------------------------
+# Group 2: ALLOW search crawlers and user-initiated fetchers
+# ---------------------------------------------------------------------
+# Search crawlers:
+#   OAI-SearchBot     ChatGPT search      https://developers.openai.com/api/docs/bots
+#   Claude-SearchBot  Claude search       https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
+#   PerplexityBot     Perplexity          https://docs.perplexity.ai/guides/bots
+#   Googlebot         Google Search, AI Overviews, AI Mode
+#                                         https://developers.google.com/search/docs/crawling-indexing/googlebot
+#   bingbot           Bing and Microsoft Copilot
+#                                         https://blogs.bing.com/webmaster/2022/4/Announcing-user-agent-change-for-Bing-crawler-bingbot/
+#   Applebot          Siri, Spotlight, Safari. Name it: with no Applebot
+#                     group, Apple follows your Googlebot rules instead.
+#                                         https://support.apple.com/en-us/119829
+#   meta-webindexer   Meta AI search      https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/
+#   Amzn-SearchBot    Alexa and Amazon search (not used for training)
+#                                         https://developer.amazon.com/amazonbot
+#   DuckAssistBot     DuckDuckGo AI answers (not used for training)
+#                                         https://duckduckgo.com/duckduckgo-help-pages/results/duckassistbot
+#   DuckDuckBot       DuckDuckGo search   https://duckduckgo.com/duckduckgo-help-pages/results/duckduckbot
+#   MistralAI-Index   Mistral search (not used for training)
+#                                         https://docs.mistral.ai/robots
+#
+# User-initiated fetchers (a person asked about your page). The vendors
+# say these are not used for training:
+#   ChatGPT-User, Claude-User, Perplexity-User, meta-externalfetcher,
+#   Amzn-User, MistralAI-User. Same doc links as above.
+
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Googlebot
+User-agent: bingbot
+User-agent: Applebot
+User-agent: meta-webindexer
+User-agent: Amzn-SearchBot
+User-agent: DuckAssistBot
+User-agent: DuckDuckBot
+User-agent: MistralAI-Index
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+User-agent: meta-externalfetcher
+User-agent: Amzn-User
+User-agent: MistralAI-User
+Allow: /
+# Disallow: /admin/
+# Disallow: /cart/
+
+
+# ---------------------------------------------------------------------
+# Group 3: BLOCK model-training crawlers and tokens
+# ---------------------------------------------------------------------
+#   GPTBot             OpenAI model training
+#                      https://developers.openai.com/api/docs/bots
+#   ClaudeBot          Anthropic model training
+#                      (Anthropic link above)
+#   Google-Extended    Gemini training AND Gemini app grounding (see TRADE-OFF 1)
+#                      https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers
+#   Applebot-Extended  Apple foundation-model training; does not crawl and
+#                      does not affect Apple search ranking
+#                      https://support.apple.com/en-us/119829
+#   meta-externalagent Meta: "training AI models or improving products"
+#                      https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/
+#   Amazonbot          Amazon: "may be used to train Amazon AI models"
+#                      https://developer.amazon.com/amazonbot
+#   MistralAI-Training Mistral model training
+#                      https://docs.mistral.ai/robots
+#   CCBot              Common Crawl open archive, widely used for training
+#                      https://commoncrawl.org/ccbot
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: MistralAI-Training
+User-agent: CCBot
+Disallow: /
+
+
+# ---------------------------------------------------------------------
+# Not verified (no vendor documentation found on 2026-10-15)
+# ---------------------------------------------------------------------
+# Third-party lists describe these as training crawlers. Uncomment to
+# block them; naming an unknown token does no harm.
+# User-agent: Bytespider
+# User-agent: cohere-ai
+# Disallow: /
+
+
+Sitemap: https://www.example.com/sitemap.xml

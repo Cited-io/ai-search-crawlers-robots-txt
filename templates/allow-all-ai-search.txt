@@ -1,0 +1,114 @@
+# robots.txt: allow every AI search, training and user-fetch crawler
+# Template from https://github.com/Cited-io/ai-search-crawlers-robots-txt
+# Tokens verified against each vendor's own documentation on 2026-10-15.
+# Full table with purposes and IP lists:
+#   https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/crawlers.md
+#
+# Use this when you want the widest possible reach in AI answers and
+# don't mind your public pages being used to train models.
+#
+# HOW TO EDIT
+# 1. Replace https://www.example.com with your domain (bottom of file).
+# 2. Put any private paths (admin, cart, account, search results) under
+#    EVERY group below, not just under "User-agent: *".
+#    Under RFC 9309 a crawler follows only the most specific group that
+#    names it. A crawler named in group 2 ignores the rules in group 1.
+# 3. Serve the file at the root: https://www.example.com/robots.txt
+# 4. Check what is actually served after your CDN with check.md:
+#    https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/check.md
+#
+# robots.txt is a request, not a lock. It cannot override a firewall
+# or bot rule that blocks the crawler before it reads this file. See:
+#   https://github.com/Cited-io/ai-search-crawlers-robots-txt/blob/main/templates/cloudflare-vercel.md
+
+
+# ---------------------------------------------------------------------
+# Group 1: every crawler not named below
+# ---------------------------------------------------------------------
+User-agent: *
+Allow: /
+# Disallow: /admin/
+# Disallow: /cart/
+
+
+# ---------------------------------------------------------------------
+# Group 2: AI and search crawlers, named explicitly
+# ---------------------------------------------------------------------
+# Naming them is not strictly needed when group 1 allows everything.
+# It makes your intent explicit, and it protects you if someone later
+# adds a broad Disallow to group 1.
+#
+# Search crawlers (show and link your pages in AI answers):
+#   OAI-SearchBot     ChatGPT search      https://developers.openai.com/api/docs/bots
+#   Claude-SearchBot  Claude search       https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
+#   PerplexityBot     Perplexity          https://docs.perplexity.ai/guides/bots
+#   Googlebot         Google Search, AI Overviews, AI Mode
+#                                         https://developers.google.com/search/docs/crawling-indexing/googlebot
+#   bingbot           Bing and Microsoft Copilot
+#                                         https://blogs.bing.com/webmaster/2022/4/Announcing-user-agent-change-for-Bing-crawler-bingbot/
+#   Applebot          Siri, Spotlight, Safari
+#                                         https://support.apple.com/en-us/119829
+#   meta-webindexer   Meta AI search      https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/
+#   Amzn-SearchBot    Alexa and Amazon search
+#                                         https://developer.amazon.com/amazonbot
+#   DuckAssistBot     DuckDuckGo AI answers
+#                                         https://duckduckgo.com/duckduckgo-help-pages/results/duckassistbot
+#   DuckDuckBot       DuckDuckGo search   https://duckduckgo.com/duckduckgo-help-pages/results/duckduckbot
+#   MistralAI-Index   Mistral search      https://docs.mistral.ai/robots
+#
+# User-initiated fetchers (a person asked about your page):
+#   ChatGPT-User, Claude-User, Perplexity-User, meta-externalfetcher,
+#   Amzn-User, MistralAI-User. Same doc links as above.
+#
+# Training crawlers and tokens:
+#   GPTBot            OpenAI              https://developers.openai.com/api/docs/bots
+#   ClaudeBot         Anthropic           (Anthropic link above)
+#   Google-Extended   Gemini training AND Gemini app grounding
+#                                         https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers
+#   Applebot-Extended Apple models        https://support.apple.com/en-us/119829
+#   meta-externalagent Meta               (Meta link above)
+#   Amazonbot         Amazon              https://developer.amazon.com/amazonbot
+#   MistralAI-Training Mistral            https://docs.mistral.ai/robots
+#   CCBot             Common Crawl        https://commoncrawl.org/ccbot
+
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Googlebot
+User-agent: bingbot
+User-agent: Applebot
+User-agent: meta-webindexer
+User-agent: Amzn-SearchBot
+User-agent: DuckAssistBot
+User-agent: DuckDuckBot
+User-agent: MistralAI-Index
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+User-agent: meta-externalfetcher
+User-agent: Amzn-User
+User-agent: MistralAI-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: MistralAI-Training
+User-agent: CCBot
+Allow: /
+# Disallow: /admin/
+# Disallow: /cart/
+
+
+# ---------------------------------------------------------------------
+# Not verified (no vendor documentation found on 2026-10-15)
+# ---------------------------------------------------------------------
+# These tokens appear in third-party lists. Uncomment them if you like;
+# naming an unknown token does no harm.
+# User-agent: Bytespider
+# User-agent: cohere-ai
+# Allow: /
+
+
+Sitemap: https://www.example.com/sitemap.xml
